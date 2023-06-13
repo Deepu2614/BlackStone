@@ -2,6 +2,7 @@ import 'package:blackstone/elements/QuickActions.dart';
 import 'package:blackstone/elements/variables.dart';
 import 'package:blackstone/elements/Chart.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter/services.dart';
 import 'package:hexcolor/hexcolor.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:flutter_charts/flutter_charts.dart';
@@ -39,169 +40,209 @@ class _HomeState extends State<Home> {
 
   @override
   Widget build(BuildContext context) {
-    return GestureDetector(
-      onTap: () {
-      FocusScope.of(context).requestFocus(FocusNode());
-      },
-      child: SingleChildScrollView(
-        child: Padding(padding: EdgeInsets.symmetric(vertical: 15,horizontal: 25),
-        child: Column(
-          mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-          crossAxisAlignment: CrossAxisAlignment.start,
-          children: [
+    return Scaffold(appBar: AppBar(
+      systemOverlayStyle: SystemUiOverlayStyle(
+        statusBarColor: HexColor('#ffffff'),
+        statusBarIconBrightness: Brightness.dark,
+        statusBarBrightness: Brightness.light,
+      ),
+      backgroundColor: HexColor('#ffffff'),
+      elevation: 4,
+      shadowColor: HexColor('#000000').withOpacity(0.18),
 
-              Padding(
-                padding: const EdgeInsets.all(20.0),
-                child: Container(
-                  decoration: BoxDecoration(
-                    borderRadius: BorderRadius.circular(20),
-                    boxShadow: [
-                      BoxShadow(
-                        color: black.withOpacity(0.12),
-                        blurRadius: 4,
-                        spreadRadius: 0,
-                        offset: Offset(0, 3),
-                      )
-                    ],
-                    color: HexColor('#F1F0F5'),
-                  ),
+      leading: Center(
+        child: Padding(
+          padding: const EdgeInsets.all(17.0),
+          child: Image.asset('assets/logo.png'),
+        ),
 
-                  child: Center(
-                    child: Padding(
-                      padding: const EdgeInsets.symmetric(horizontal: 10,vertical: 5),
-                      child: TextField(
-                        decoration: InputDecoration(
+      ),
+      leadingWidth: 100,
+      title: Text(
+        'Blackstone',
+        style: GoogleFonts.sora(
+            color: HexColor('000000'),
+            fontWeight: FontWeight.bold,
+            fontSize: 22
+        ),
+      ),
+      actions: [
+        InkWell(
+          child: Padding(
+            padding: const EdgeInsets.symmetric(horizontal: 20),
+            child: Center(child: Icon(Icons.notifications,color: black,)),
+          ),
+          onTap: (){
+            print("Notification tapped");
+          },
+        ),
+      ],
 
-                          floatingLabelBehavior: FloatingLabelBehavior.never,
-                            iconColor: HexColor('#777777'),
-                            label: Text('Search for conainer'),
-                           labelStyle: TextStyle(
-                             color: HexColor('#777777')
-                           ),
+    ),
+      body: GestureDetector(
+        onTap: () {
+        FocusScope.of(context).requestFocus(FocusNode());
+        },
+        child: SingleChildScrollView(
+          child: Padding(padding: EdgeInsets.symmetric(vertical: 15,horizontal: 25),
+          child: Column(
+            mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+            crossAxisAlignment: CrossAxisAlignment.start,
+            children: [
 
-                           icon:Icon(Icons.search),
-                          focusColor: HexColor('#777777'),
-                          hoverColor: HexColor('#777777'),
+                Padding(
+                  padding: const EdgeInsets.all(20.0),
+                  child: Container(
+                    decoration: BoxDecoration(
+                      borderRadius: BorderRadius.circular(20),
+                      boxShadow: [
+                        BoxShadow(
+                          color: black.withOpacity(0.12),
+                          blurRadius: 4,
+                          spreadRadius: 0,
+                          offset: Offset(0, 3),
+                        )
+                      ],
+                      color: HexColor('#F1F0F5'),
+                    ),
 
-                          border: InputBorder.none,
+                    child: Center(
+                      child: Padding(
+                        padding: const EdgeInsets.symmetric(horizontal: 10,vertical: 5),
+                        child: TextField(
+                          decoration: InputDecoration(
 
+                            floatingLabelBehavior: FloatingLabelBehavior.never,
+                              iconColor: HexColor('#777777'),
+                              label: Text('Search for conainer'),
+                             labelStyle: TextStyle(
+                               color: HexColor('#777777')
+                             ),
+
+                             icon:Icon(Icons.search),
+                            focusColor: HexColor('#777777'),
+                            hoverColor: HexColor('#777777'),
+
+                            border: InputBorder.none,
+
+                          ),
                         ),
                       ),
                     ),
                   ),
                 ),
+
+
+
+              Padding(
+                padding: const EdgeInsets.only(top: 20.0),
+                child: Column(
+                  crossAxisAlignment: CrossAxisAlignment.start,
+                  mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                  children: [
+                    Text(
+                      "Quick Action",
+                    style:
+                    GoogleFonts.sora(
+                      color: HexColor('000000'),
+                      fontWeight: FontWeight.bold,
+                      fontSize: 20
+                        ),
+                    ),
+
+                    QuickAction()
+
+
+                  ],
+                ),
+              ),
+
+              Column(
+                crossAxisAlignment: CrossAxisAlignment.start,
+                children: [
+                  Padding(
+                    padding: const EdgeInsets.only(bottom: 30.0),
+                    child:  Text(
+                      "Container Stats",
+                      style:
+                      GoogleFonts.sora(
+                          color: HexColor('000000'),
+                          fontWeight: FontWeight.bold,
+                          fontSize: 20
+                      ),
+                    ),
+                  ),
+
+                  Padding(padding: EdgeInsets.only(bottom: 20),
+                    child: Container(
+                      width: double.maxFinite,
+                      // height: MediaQuery.of(context).size.height*(50/100),
+                      decoration: BoxDecoration(
+                          color: HexColor('#ffffff'),
+                          borderRadius: BorderRadius.circular(13),
+                          boxShadow: [
+                            BoxShadow(
+                                color: black.withOpacity(0.10),
+                                spreadRadius: 0,
+                                blurRadius: 4,
+                                offset: Offset(0, 4)
+                            )
+                          ]
+                      ),
+
+                      child: Padding(
+                        padding: EdgeInsets.all(20),
+                        child: Column(
+                          mainAxisAlignment: MainAxisAlignment.start,
+
+                          children: [
+
+                            StatusTile(Colors.blueAccent, "Processing", 1),
+                            StatusTile(Colors.yellow, "Departed", 5),
+                            StatusTile(Colors.orange, "On Shipment", 9),
+                            StatusTile(Colors.green, "Reached", 6),
+                            StatusTile(Colors.redAccent, "Not Active", 4),
+
+                          ],
+                        ),
+
+                      ),
+
+                    ),
+                  )
+                ],
               ),
 
 
-
-            Padding(
-              padding: const EdgeInsets.only(top: 20.0),
-              child: Column(
+              Column(
                 crossAxisAlignment: CrossAxisAlignment.start,
-                mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                 children: [
-                  Text(
-                    "Quick Action",
-                  style:
-                  GoogleFonts.sora(
-                    color: HexColor('000000'),
-                    fontWeight: FontWeight.bold,
-                    fontSize: 20
+                  Padding(
+                    padding: const EdgeInsets.only(bottom: 30.0),
+                    child:  Text(
+                      "Quick Dashboard",
+                      style:
+                      GoogleFonts.sora(
+                          color: HexColor('000000'),
+                          fontWeight: FontWeight.bold,
+                          fontSize: 20
                       ),
+                    ),
                   ),
 
-                  QuickAction()
+
+                  Container(
+                    child:  chartToRun(),
+                  )
 
 
                 ],
-              ),
-            ),
-
-            Column(
-              crossAxisAlignment: CrossAxisAlignment.start,
-              children: [
-                Padding(
-                  padding: const EdgeInsets.only(bottom: 30.0),
-                  child:  Text(
-                    "Container Stats",
-                    style:
-                    GoogleFonts.sora(
-                        color: HexColor('000000'),
-                        fontWeight: FontWeight.bold,
-                        fontSize: 20
-                    ),
-                  ),
-                ),
-
-                Padding(padding: EdgeInsets.only(bottom: 20),
-                  child: Container(
-                    width: double.maxFinite,
-                    // height: MediaQuery.of(context).size.height*(50/100),
-                    decoration: BoxDecoration(
-                        color: HexColor('#ffffff'),
-                        borderRadius: BorderRadius.circular(13),
-                        boxShadow: [
-                          BoxShadow(
-                              color: black.withOpacity(0.10),
-                              spreadRadius: 0,
-                              blurRadius: 4,
-                              offset: Offset(0, 4)
-                          )
-                        ]
-                    ),
-
-                    child: Padding(
-                      padding: EdgeInsets.all(20),
-                      child: Column(
-                        mainAxisAlignment: MainAxisAlignment.start,
-
-                        children: [
-
-                          StatusTile(Colors.blueAccent, "Processing", 1),
-                          StatusTile(Colors.yellow, "Departed", 5),
-                          StatusTile(Colors.orange, "On Shipment", 9),
-                          StatusTile(Colors.green, "Reached", 6),
-                          StatusTile(Colors.redAccent, "Not Active", 4),
-
-                        ],
-                      ),
-
-                    ),
-
-                  ),
-                )
-              ],
-            ),
+              )
 
 
-            Column(
-              crossAxisAlignment: CrossAxisAlignment.start,
-              children: [
-                Padding(
-                  padding: const EdgeInsets.only(bottom: 30.0),
-                  child:  Text(
-                    "Quick Dashboard",
-                    style:
-                    GoogleFonts.sora(
-                        color: HexColor('000000'),
-                        fontWeight: FontWeight.bold,
-                        fontSize: 20
-                    ),
-                  ),
-                ),
-
-
-                Container(
-                  child:  chartToRun(),
-                )
-
-
-              ],
-            )
-
-
-          ],
-        ),
+            ],
+          ),
+          ),
         ),
       ),
     );

@@ -38,45 +38,7 @@ class _HomepageState extends State<Homepage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(
-        systemOverlayStyle: SystemUiOverlayStyle(
-          statusBarColor: HexColor('#ffffff'),
-          statusBarIconBrightness: Brightness.dark,
-          statusBarBrightness: Brightness.light,
-        ),
-        backgroundColor: HexColor('#ffffff'),
-        elevation: 4,
-        shadowColor: HexColor('#000000').withOpacity(0.18),
 
-        leading: Center(
-          child: Padding(
-            padding: const EdgeInsets.all(17.0),
-            child: Image.asset('assets/logo.png'),
-          ),
-
-        ),
-        leadingWidth: 100,
-        title: Text(
-          'Blackstone',
-          style: GoogleFonts.sora(
-              color: HexColor('000000'),
-              fontWeight: FontWeight.bold,
-              fontSize: 22
-          ),
-        ),
-        actions: [
-          InkWell(
-            child: Padding(
-              padding: const EdgeInsets.symmetric(horizontal: 20),
-              child: Center(child: Icon(Icons.notifications,color: black,)),
-            ),
-            onTap: (){
-              print("Notification tapped");
-            },
-          ),
-        ],
-
-      ),
 
       bottomNavigationBar: BottomNavigationBar(items: const <BottomNavigationBarItem>[
         BottomNavigationBarItem(
@@ -107,6 +69,7 @@ class _HomepageState extends State<Homepage> {
       ),
 
       body: PageView(
+
         controller: pageController,
         children: [
           Home(),
