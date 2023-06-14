@@ -24,6 +24,7 @@ class Homepage extends StatefulWidget {
 
 class _HomepageState extends State<Homepage> {
 
+  
 
   int _selectedIndex = 0;
   PageController pageController = PageController();
@@ -40,21 +41,21 @@ class _HomepageState extends State<Homepage> {
     return Scaffold(
 
 
-      bottomNavigationBar: BottomNavigationBar(items: const <BottomNavigationBarItem>[
+      bottomNavigationBar: BottomNavigationBar(items:  <BottomNavigationBarItem>[
         BottomNavigationBarItem(
-            icon: Icon(Icons.home),
+            icon: _selectedIndex == 0?Icon(Icons.home):Icon(Icons.home_outlined),
             label: 'Home',
         ),
         BottomNavigationBarItem(
-            icon: Icon(Icons.search),
+            icon:  _selectedIndex == 0?Icon(Icons.fire_truck_outlined):Icon(Icons.fire_truck),
             label: 'Search'
         ),
         BottomNavigationBarItem(
-            icon: Icon(Icons.map_outlined),
+            icon:  _selectedIndex == 0?Icon(Icons.map_outlined):Icon(Icons.map),
             label: 'Map'
         ),
         BottomNavigationBarItem(
-            icon: Icon(Icons.person),
+            icon: _selectedIndex == 0?Icon(Icons.person_outline):Icon(Icons.person),
             label: 'Profile'
         ),
       ],
