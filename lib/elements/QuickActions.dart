@@ -61,18 +61,20 @@ class _QuickActionState extends State<QuickAction> {
 
   @override
   Widget build(BuildContext context) {
-    return Padding(
-      padding: const EdgeInsets.symmetric(vertical: 25.0),
-      child: Row(
-        mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-        children: [
+    return SingleChildScrollView(
+      scrollDirection: Axis.horizontal,
+      child: Padding(
+        padding: const EdgeInsets.symmetric(vertical: 25.0),
+        child: Row(
+          mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+          children: [
 
 
-          QuickActionItem("Map", Icon(Icons.map_outlined,color: HexColor('20BD67')),),
-          QuickActionItem("Docs", Icon(Icons.edit_document,color: HexColor('20BD67'))),
-          QuickActionItem("Truck", Icon(Icons.fire_truck_rounded,color: HexColor('20BD67'))),
-          QuickActionItem("Dash", Icon(Icons.dashboard,color: HexColor('20BD67'))),
-          // QuickActionItem("Add Cont.", Icon(Icons.add_box_rounded,color: HexColor('20BD67'))),
+            QuickActionItem("Map", Icon(Icons.map_outlined,color: HexColor('20BD67')),),
+            QuickActionItem("Docs", Icon(Icons.edit_document,color: HexColor('20BD67'))),
+            QuickActionItem("Truck", Icon(Icons.fire_truck_rounded,color: HexColor('20BD67'))),
+            QuickActionItem("Dash", Icon(Icons.dashboard,color: HexColor('20BD67'))),
+            // QuickActionItem("Add Cont.", Icon(Icons.add_box_rounded,color: HexColor('20BD67'))),
 
 
 
@@ -80,7 +82,8 @@ class _QuickActionState extends State<QuickAction> {
 
 
 
-        ],
+          ],
+        ),
       ),
     );
   }

@@ -37,31 +37,7 @@ class SimpleBarChatScreen extends StatelessWidget {
               color: green,
               size: 189,
             ),
-            HorizontalDetailsModel(
-              name: 'E',
-              color: green,
-              size: 300,
-            ),
-            HorizontalDetailsModel(
-              name: 'F',
-              color: green,
-              size: 64,
-            ),
-            HorizontalDetailsModel(
-              name: 'G',
-              color: green,
-              size: 150,
-            ),
-            HorizontalDetailsModel(
-              name: 'H',
-              color: green,
-              size: 70,
-            ),
-            HorizontalDetailsModel(
-              name: 'I',
-              color: green,
-              size: 170,
-            ),
+
 
           ],
           verticalInterval: 100,

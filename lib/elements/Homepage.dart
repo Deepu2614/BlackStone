@@ -9,78 +9,77 @@ import 'package:blackstone/elements/variables.dart';
 import 'package:stylish_bottom_bar/model/bar_items.dart';
 import 'package:stylish_bottom_bar/stylish_bottom_bar.dart';
 
+import '../Pages/Containers.dart';
 import '../Pages/Home.dart';
-
-
 
 class Homepage extends StatefulWidget {
   const Homepage({Key? key}) : super(key: key);
-
-
 
   @override
   State<Homepage> createState() => _HomepageState();
 }
 
 class _HomepageState extends State<Homepage> {
-
-  
-
   int _selectedIndex = 0;
-  PageController pageController = PageController();
-  void _onTapped(int index){
+
+  void _onTapped(int index) {
     setState(() {
       _selectedIndex = index;
     });
-    pageController.jumpToPage(index);
   }
-
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-
-
-      bottomNavigationBar: BottomNavigationBar(items:  <BottomNavigationBarItem>[
-        BottomNavigationBarItem(
-            icon: _selectedIndex == 0?Icon(Icons.home):Icon(Icons.home_outlined),
+      body: IndexedStack(
+        index: _selectedIndex,
+        children: [
+          Home(),
+          Containers(),
+          Search(showData: true,),
+          Maps(),
+          Profile(),
+        ],
+      ),
+      bottomNavigationBar: BottomNavigationBar(
+        items: <BottomNavigationBarItem>[
+          BottomNavigationBarItem(
+            icon: _selectedIndex == 0
+                ? Icon(Icons.home)
+                : Icon(Icons.home_outlined),
             label: 'Home',
-        ),
-        BottomNavigationBarItem(
-            icon:  _selectedIndex == 0?Icon(Icons.fire_truck_outlined):Icon(Icons.fire_truck),
-            label: 'Search'
-        ),
-        BottomNavigationBarItem(
-            icon:  _selectedIndex == 0?Icon(Icons.map_outlined):Icon(Icons.map),
-            label: 'Map'
-        ),
-        BottomNavigationBarItem(
-            icon: _selectedIndex == 0?Icon(Icons.person_outline):Icon(Icons.person),
-            label: 'Profile'
-        ),
-      ],
+          ),
+          BottomNavigationBarItem(
+            icon: _selectedIndex == 1
+                ? Icon(Icons.fire_truck)
+                : Icon(Icons.fire_truck_outlined),
+            label: 'Search',
+          ), BottomNavigationBarItem(
+            icon: _selectedIndex == 2
+                ? Icon(Icons.check_box_outline_blank_outlined)
+                : Icon(Icons.check_box),
+            label: 'Search',
+          ),
+          BottomNavigationBarItem(
+            icon: _selectedIndex == 3
+                ? Icon(Icons.map)
+                : Icon(Icons.map_outlined),
+            label: 'Map',
+          ),
+          BottomNavigationBarItem(
+            icon: _selectedIndex == 4
+                ? Icon(Icons.person)
+                : Icon(Icons.person_outline),
+            label: 'Profile',
+          ),
+        ],
         selectedItemColor: black,
         unselectedItemColor: black2,
         currentIndex: _selectedIndex,
         onTap: _onTapped,
-        // showSelectedLabels: false,
         iconSize: 20,
         showSelectedLabels: false,
-        
       ),
-
-      body: PageView(
-
-        controller: pageController,
-        children: [
-          Home(),
-          Search(),
-          Map(),
-          Profile(),
-          ],
-      ),
-
-
 
     );
   }
