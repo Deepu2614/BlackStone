@@ -1,3 +1,4 @@
+import 'package:blackstone/Pages/details.dart';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:hexcolor/hexcolor.dart';
@@ -6,7 +7,7 @@ import 'package:http/http.dart' as http;
 
 import '../elements/Container.dart';
 import '../elements/Drop down.dart';
-import '../elements/simple dropdown.dart';
+
 import 'confirm_order.dart';
 
 
@@ -53,18 +54,44 @@ class _OrderOneState extends State<OrderOne> {
   void _submitText() {
     setState(() async {
       final orderid = _orderidController.text;
+      final from = _fromController.text;
+      final to = _toController.text;
+      final prod = _prodController.text;
+      final load = _loadController.text;
 
-      final apiUrl = 'https://64e2ef8cbac46e480e77edd9.mockapi.io/driver_detail';
+      final apiUrl = 'https://64e2ef8cbac46e480e77edd9.mockapi.io/order';
 
 
       final response = await http.post(
         Uri.parse(apiUrl),
         body: {
-          'order_id': orderid
+          'order_id': orderid,
+          'from' : from,
+          'to' : to,
+          'product_info': prod,
+          'load' : load
         },
       );
 
+
+
+
+      print('Order ID: $orderid');
+      print(response.statusCode.runtimeType);
+
+      if (response.statusCode == 201) {
+        // Navigate to the Details page
+        Navigator.push(
+          context,
+          MaterialPageRoute(builder: (context) => Ordertwo()),
+        );
+      } else {
+        print('Request failed with status code: ${response.statusCode}');
+      }
+      
     });
+    
+    
   }
 
 
@@ -125,6 +152,22 @@ class _OrderOneState extends State<OrderOne> {
                   Container(
                     height: 110,
                     child: TextField(
+                      decoration: InputDecoration(
+                        filled: true,
+                        fillColor: Colors.grey[200],
+                        focusedBorder: OutlineInputBorder(
+                          borderSide: BorderSide(color: Colors.grey, width: 1.4), // Red border color when focused
+                          borderRadius: BorderRadius.circular(10),
+                        ),
+                        enabledBorder: OutlineInputBorder(
+                          borderSide: BorderSide(color: Colors.grey, width: 1.4), // Red border color when enabled (not focused)
+                          borderRadius: BorderRadius.circular(10),
+                        ),
+                        disabledBorder: OutlineInputBorder(
+                          borderSide: BorderSide(color: Colors.grey, width: 1.4), // Red border color when disabled
+                          borderRadius: BorderRadius.circular(10),
+                        ),
+                      ),
                       controller: _orderidController,
 
                     ),
@@ -192,6 +235,22 @@ class _OrderOneState extends State<OrderOne> {
                   Padding(
                     padding: const EdgeInsets.only(top: 8, bottom: 8),
                     child: Container(height: 110, child: TextField(
+                      decoration: InputDecoration(
+                        filled: true,
+                        fillColor: Colors.grey[200],
+                        focusedBorder: OutlineInputBorder(
+                          borderSide: BorderSide(color: Colors.grey, width: 1.4), // Red border color when focused
+                          borderRadius: BorderRadius.circular(10),
+                        ),
+                        enabledBorder: OutlineInputBorder(
+                          borderSide: BorderSide(color: Colors.grey, width: 1.4), // Red border color when enabled (not focused)
+                          borderRadius: BorderRadius.circular(10),
+                        ),
+                        disabledBorder: OutlineInputBorder(
+                          borderSide: BorderSide(color: Colors.grey, width: 1.4), // Red border color when disabled
+                          borderRadius: BorderRadius.circular(10),
+                        ),
+                      ),
                       controller: _fromController,
                     )),
                   ),
@@ -221,6 +280,22 @@ class _OrderOneState extends State<OrderOne> {
                   Padding(
                     padding: const EdgeInsets.only(top: 8, bottom: 8),
                     child: Container(height: 110, child: TextField(
+                      decoration: InputDecoration(
+                        filled: true,
+                        fillColor: Colors.grey[200],
+                        focusedBorder: OutlineInputBorder(
+                          borderSide: BorderSide(color: Colors.grey, width: 1.4), // Red border color when focused
+                          borderRadius: BorderRadius.circular(10),
+                        ),
+                        enabledBorder: OutlineInputBorder(
+                          borderSide: BorderSide(color: Colors.grey, width: 1.4), // Red border color when enabled (not focused)
+                          borderRadius: BorderRadius.circular(10),
+                        ),
+                        disabledBorder: OutlineInputBorder(
+                          borderSide: BorderSide(color: Colors.grey, width: 1.4), // Red border color when disabled
+                          borderRadius: BorderRadius.circular(10),
+                        ),
+                      ),
                       controller: _toController,
                     )),
                   ),
@@ -250,6 +325,22 @@ class _OrderOneState extends State<OrderOne> {
                   Padding(
                     padding: const EdgeInsets.only(top: 8, bottom: 8),
                     child: Container(height: 110, child: TextField(
+                      decoration: InputDecoration(
+                        filled: true,
+                        fillColor: Colors.grey[200],
+                        focusedBorder: OutlineInputBorder(
+                          borderSide: BorderSide(color: Colors.grey, width: 1.4), // Red border color when focused
+                          borderRadius: BorderRadius.circular(10),
+                        ),
+                        enabledBorder: OutlineInputBorder(
+                          borderSide: BorderSide(color: Colors.grey, width: 1.4), // Red border color when enabled (not focused)
+                          borderRadius: BorderRadius.circular(10),
+                        ),
+                        disabledBorder: OutlineInputBorder(
+                          borderSide: BorderSide(color: Colors.grey, width: 1.4), // Red border color when disabled
+                          borderRadius: BorderRadius.circular(10),
+                        ),
+                      ),
                       controller: _prodController,
                     )),
                   ),
@@ -279,6 +370,22 @@ class _OrderOneState extends State<OrderOne> {
                   Padding(
                     padding: const EdgeInsets.only(top: 8, bottom: 8),
                     child: Container(height: 110, child:TextField(
+                      decoration: InputDecoration(
+                        filled: true,
+                        fillColor: Colors.grey[200],
+                        focusedBorder: OutlineInputBorder(
+                          borderSide: BorderSide(color: Colors.grey, width: 1.4), // Red border color when focused
+                          borderRadius: BorderRadius.circular(10),
+                        ),
+                        enabledBorder: OutlineInputBorder(
+                          borderSide: BorderSide(color: Colors.grey, width: 1.4), // Red border color when enabled (not focused)
+                          borderRadius: BorderRadius.circular(10),
+                        ),
+                        disabledBorder: OutlineInputBorder(
+                          borderSide: BorderSide(color: Colors.grey, width: 1.4), // Red border color when disabled
+                          borderRadius: BorderRadius.circular(10),
+                        ),
+                      ),
                       controller: _loadController,
                     )),
                   ),
@@ -291,7 +398,7 @@ class _OrderOneState extends State<OrderOne> {
                           height: 50,
                           width: 100,
                           child: ElevatedButton(
-                            onPressed: _submitText,
+                            onPressed:  _submitText,
                             style: ButtonStyle(
                               backgroundColor:
                               MaterialStateProperty.all<Color>(

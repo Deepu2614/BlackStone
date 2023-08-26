@@ -1,4 +1,5 @@
 import 'package:blackstone/elements/Container_four.dart';
+import 'package:blackstone/elements/inpdec.dart';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:hexcolor/hexcolor.dart';
@@ -9,7 +10,6 @@ import '../elements/Container.dart';
 import '../elements/Drop down.dart';
 import '../elements/Simple dropdown2.dart';
 import '../elements/container_four_all.dart';
-import '../elements/simple dropdown.dart';
 import 'Search.dart';
 import 'confirm_order.dart';
 
@@ -126,18 +126,20 @@ class _ContformState extends State<Contform> {
             color: Colors.black, // Change this to your desired color
           ),
         ),
+
         body: SafeArea(
-          child: SingleChildScrollView(
-            child: Padding(
-              padding: EdgeInsets.symmetric(horizontal: 17),
-              child: Column(
-                crossAxisAlignment: CrossAxisAlignment.center,
-                children: [
-                  Row(
-                    children: [
-                      Padding(
-                        padding: EdgeInsets.symmetric(vertical: 20),
-                        child: Text(
+          child: Padding(
+            padding: EdgeInsets.symmetric(horizontal: 17),
+            child: SingleChildScrollView(
+              child: Container(
+                height: MediaQuery.of(context).size.height,
+                child: Column(
+                  crossAxisAlignment: CrossAxisAlignment.center,
+                  mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                  children: [
+                    Row(
+                      children: [
+                        Text(
                           'Container number',
                           style: GoogleFonts.sora(
                             color: HexColor('000000'),
@@ -145,28 +147,39 @@ class _ContformState extends State<Contform> {
                             fontSize: 20,
                           ),
                         ),
-                      ),
-                      Text(
-                        '*',
-                        style: GoogleFonts.sora(
-                          color: HexColor('20BD67'),
-                          fontWeight: FontWeight.w600,
-                          fontSize: 20,
+                        Text(
+                          '*',
+                          style: GoogleFonts.sora(
+                            color: HexColor('20BD67'),
+                            fontWeight: FontWeight.w600,
+                            fontSize: 20,
+                          ),
+                        ),
+                      ],
+                    ),
+                    TextField(
+                      decoration: InputDecoration(
+                        filled: true,
+                        fillColor: Colors.grey[200],
+                        focusedBorder: OutlineInputBorder(
+                          borderSide: BorderSide(color: Colors.grey, width: 1.4), // Red border color when focused
+                          borderRadius: BorderRadius.circular(10),
+                        ),
+                        enabledBorder: OutlineInputBorder(
+                          borderSide: BorderSide(color: Colors.grey, width: 1.4), // Red border color when enabled (not focused)
+                          borderRadius: BorderRadius.circular(10),
+                        ),
+                        disabledBorder: OutlineInputBorder(
+                          borderSide: BorderSide(color: Colors.grey, width: 1.4), // Red border color when disabled
+                          borderRadius: BorderRadius.circular(10),
                         ),
                       ),
-                    ],
-                  ),
-                  Container(
-                    height: 110,
-                    child: simpledropdown2(),
-                  ),
+                    ),
 
 
-                  Row(
-                    children: [
-                      Padding(
-                        padding: EdgeInsets.only(top: 20),
-                        child: Text(
+                    Row(
+                      children: [
+                        Text(
                           'Tracking Id',
                           style: GoogleFonts.sora(
                             color: HexColor('000000'),
@@ -174,28 +187,36 @@ class _ContformState extends State<Contform> {
                             fontSize: 20,
                           ),
                         ),
-                      ),
-                      Text(
-                        '*',
-                        style: GoogleFonts.sora(
-                          color: HexColor('20BD67'),
-                          fontWeight: FontWeight.w600,
-                          fontSize: 20,
+                        Text(
+                          '*',
+                          style: GoogleFonts.sora(
+                            color: HexColor('20BD67'),
+                            fontWeight: FontWeight.w600,
+                            fontSize: 20,
+                          ),
+                        ),
+                      ],
+                    ),TextField(
+                      decoration: InputDecoration(
+                        filled: true,
+                        fillColor: Colors.grey[200],
+                        focusedBorder: OutlineInputBorder(
+                          borderSide: BorderSide(color: Colors.grey, width: 1.4), // Red border color when focused
+                          borderRadius: BorderRadius.circular(10),
+                        ),
+                        enabledBorder: OutlineInputBorder(
+                          borderSide: BorderSide(color: Colors.grey, width: 1.4), // Red border color when enabled (not focused)
+                          borderRadius: BorderRadius.circular(10),
+                        ),
+                        disabledBorder: OutlineInputBorder(
+                          borderSide: BorderSide(color: Colors.grey, width: 1.4), // Red border color when disabled
+                          borderRadius: BorderRadius.circular(10),
                         ),
                       ),
-                    ],
-                  ),
-                  Padding(
-                    padding: const EdgeInsets.only(top: 8, bottom: 8),
-                    child:
-                    Container(height: 110,
-                      child: TrackingId()),
-                  ),
-                  Row(
-                    children: [
-                      Padding(
-                        padding: EdgeInsets.only(top: 20),
-                        child: Text(
+                    ),
+                    Row(
+                      children: [
+                        Text(
                           'Container type',
                           style: GoogleFonts.sora(
                             color: HexColor('000000'),
@@ -203,26 +224,37 @@ class _ContformState extends State<Contform> {
                             fontSize: 20,
                           ),
                         ),
-                      ),
-                      Text(
-                        '*',
-                        style: GoogleFonts.sora(
-                          color: HexColor('20BD67'),
-                          fontWeight: FontWeight.w600,
-                          fontSize: 20,
+                        Text(
+                          '*',
+                          style: GoogleFonts.sora(
+                            color: HexColor('20BD67'),
+                            fontWeight: FontWeight.w600,
+                            fontSize: 20,
+                          ),
+                        ),
+                      ],
+                    ),
+                    TextField(
+                      decoration: InputDecoration(
+                        filled: true,
+                        fillColor: Colors.grey[200],
+                        focusedBorder: OutlineInputBorder(
+                          borderSide: BorderSide(color: Colors.grey, width: 1.4), // Red border color when focused
+                          borderRadius: BorderRadius.circular(10),
+                        ),
+                        enabledBorder: OutlineInputBorder(
+                          borderSide: BorderSide(color: Colors.grey, width: 1.4), // Red border color when enabled (not focused)
+                          borderRadius: BorderRadius.circular(10),
+                        ),
+                        disabledBorder: OutlineInputBorder(
+                          borderSide: BorderSide(color: Colors.grey, width: 1.4), // Red border color when disabled
+                          borderRadius: BorderRadius.circular(10),
                         ),
                       ),
-                    ],
-                  ),
-                  Padding(
-                    padding: const EdgeInsets.only(top: 8, bottom: 8),
-                    child: Container(height: 110, child:  ContainerType()),
-                  ),
-                  Row(
-                    children: [
-                      Padding(
-                        padding: EdgeInsets.only(top: 20),
-                        child: Text(
+                    ),
+                    Row(
+                      children: [
+                        Text(
                           'Weight',
                           style: GoogleFonts.sora(
                             color: HexColor('000000'),
@@ -230,69 +262,74 @@ class _ContformState extends State<Contform> {
                             fontSize: 20,
                           ),
                         ),
-                      ),
-                      Text(
-                        '*',
-                        style: GoogleFonts.sora(
-                          color: HexColor('20BD67'),
-                          fontWeight: FontWeight.w600,
-                          fontSize: 20,
-                        ),
-                      ),
-                    ],
-                  ),
-                  Padding(
-                    padding: const EdgeInsets.only(top: 8, bottom: 8),
-                    child: Container(height: 110, child: weightcont()),
-                  ),
-
-
-                  Row(
-                    mainAxisAlignment: MainAxisAlignment.center,
-                    children: [
-                      Padding(
-                        padding: const EdgeInsets.all(50.0),
-                        child: SizedBox(
-                          height: 50,
-                          width: 100,
-                          child: ElevatedButton(
-                            onPressed: () {
-                              Navigator.push(
-                                context,
-
-                                MaterialPageRoute(
-                                  builder: (context) => Search(selectedData: selectedData,showData: true),
-                                ),
-                              );
-                              _saveSelectedItemsToApi(selectedItems);
-
-
-                            },
-                            style: ButtonStyle(
-                              backgroundColor:
-                              MaterialStateProperty.all<Color>(
-                                  HexColor('20BD67')),
-                              shape: MaterialStateProperty.all<
-                                  RoundedRectangleBorder>(
-                                RoundedRectangleBorder(
-                                  borderRadius: BorderRadius.circular(10),
-                                ),
-                              ),
-                            ),
-                            child: Text(
-                              'Submit',
-                              style: GoogleFonts.sora(
-                                color: HexColor('FFFFFF'),
-                                fontWeight: FontWeight.w600,
-                                fontSize: 21,
-                              ),
-                            ),
+                        Text(
+                          '*',
+                          style: GoogleFonts.sora(
+                            color: HexColor('20BD67'),
+                            fontWeight: FontWeight.w600,
+                            fontSize: 20,
                           ),
                         ),
-                      )
-                    ],
-                  ),
-                ],
+                      ],
+                    ),
+                    TextField(
+                      decoration: InputDecoration(
+                        filled: true,
+                        fillColor: Colors.grey[200],
+                        focusedBorder: OutlineInputBorder(
+                          borderSide: BorderSide(color: Colors.grey, width: 1.4), // Red border color when focused
+                          borderRadius: BorderRadius.circular(10),
+                        ),
+                        enabledBorder: OutlineInputBorder(
+                          borderSide: BorderSide(color: Colors.grey, width: 1.4), // Red border color when enabled (not focused)
+                          borderRadius: BorderRadius.circular(10),
+                        ),
+                        disabledBorder: OutlineInputBorder(
+                          borderSide: BorderSide(color: Colors.grey, width: 1.4), // Red border color when disabled
+                          borderRadius: BorderRadius.circular(10),
+                        ),
+                      ),
+                    ),
+
+
+                    ElevatedButton(
+                      onPressed: () {
+                        Navigator.push(
+                          context,
+
+                          MaterialPageRoute(
+                            builder: (context) => Search(selectedData: selectedData,showData: true),
+                          ),
+                        );
+                        _saveSelectedItemsToApi(selectedItems);
+
+
+                      },
+                      style: ButtonStyle(
+                        backgroundColor:
+                        MaterialStateProperty.all<Color>(
+                            HexColor('20BD67')),
+                        shape: MaterialStateProperty.all<
+                            RoundedRectangleBorder>(
+                          RoundedRectangleBorder(
+                            borderRadius: BorderRadius.circular(10),
+                          ),
+                        ),
+                      ),
+                      child: Padding(
+                        padding: const EdgeInsets.all(10.0),
+                        child: Text(
+                          'Submit',
+                          style: GoogleFonts.sora(
+                            color: HexColor('FFFFFF'),
+                            fontWeight: FontWeight.w600,
+                            fontSize: 21,
+                          ),
+                        ),
+                      ),
+                    ),
+                  ],
+                ),
               ),
             ),
           ),
@@ -301,3 +338,7 @@ class _ContformState extends State<Contform> {
     );
   }
 }
+
+
+
+

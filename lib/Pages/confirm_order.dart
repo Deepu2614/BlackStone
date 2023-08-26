@@ -165,17 +165,19 @@ class _OrdertwoState extends State<Ordertwo> {
                       controller: _nameController,
                       decoration: InputDecoration(
                         hintText: "Enter driver's name",
-                        enabledBorder: OutlineInputBorder(
-                          borderSide: BorderSide(
-                            width: 2,
-                            color: HexColor('CBCBCB'),
-                          ),
-                        ),
+                        filled: true,
+                        fillColor: Colors.grey[200],
                         focusedBorder: OutlineInputBorder(
-                          borderSide: BorderSide(
-                            width: 2,
-                            color: HexColor('20BD67'),
-                          ),
+                          borderSide: BorderSide(color: Colors.grey, width: 1.4), // Red border color when focused
+                          borderRadius: BorderRadius.circular(10),
+                        ),
+                        enabledBorder: OutlineInputBorder(
+                          borderSide: BorderSide(color: Colors.grey, width: 1.4), // Red border color when enabled (not focused)
+                          borderRadius: BorderRadius.circular(10),
+                        ),
+                        disabledBorder: OutlineInputBorder(
+                          borderSide: BorderSide(color: Colors.grey, width: 1.4), // Red border color when disabled
+                          borderRadius: BorderRadius.circular(10),
                         ),
                       ),
                     ),
@@ -212,17 +214,19 @@ class _OrdertwoState extends State<Ordertwo> {
                       controller: _cityController,
                       decoration: InputDecoration(
                         hintText: 'Enter city name',
-                        enabledBorder: OutlineInputBorder(
-                          borderSide: BorderSide(
-                            width: 2,
-                            color: HexColor('CBCBCB'),
-                          ),
-                        ),
+                        filled: true,
+                        fillColor: Colors.grey[200],
                         focusedBorder: OutlineInputBorder(
-                          borderSide: BorderSide(
-                            width: 2,
-                            color: HexColor('20BD67'),
-                          ),
+                          borderSide: BorderSide(color: Colors.grey, width: 1.4), // Red border color when focused
+                          borderRadius: BorderRadius.circular(10),
+                        ),
+                        enabledBorder: OutlineInputBorder(
+                          borderSide: BorderSide(color: Colors.grey, width: 1.4), // Red border color when enabled (not focused)
+                          borderRadius: BorderRadius.circular(10),
+                        ),
+                        disabledBorder: OutlineInputBorder(
+                          borderSide: BorderSide(color: Colors.grey, width: 1.4), // Red border color when disabled
+                          borderRadius: BorderRadius.circular(10),
                         ),
                       ),
                     ),
@@ -259,17 +263,19 @@ class _OrdertwoState extends State<Ordertwo> {
                       controller: _phoneController,
                       decoration: InputDecoration(
                         hintText: "Enter driver's phone number",
-                        enabledBorder: OutlineInputBorder(
-                          borderSide: BorderSide(
-                            width: 2,
-                            color: HexColor('CBCBCB'),
-                          ),
-                        ),
+                        filled: true,
+                        fillColor: Colors.grey[200],
                         focusedBorder: OutlineInputBorder(
-                          borderSide: BorderSide(
-                            width: 2,
-                            color: HexColor('20BD67'),
-                          ),
+                          borderSide: BorderSide(color: Colors.grey, width: 1.4), // Red border color when focused
+                          borderRadius: BorderRadius.circular(10),
+                        ),
+                        enabledBorder: OutlineInputBorder(
+                          borderSide: BorderSide(color: Colors.grey, width: 1.4), // Red border color when enabled (not focused)
+                          borderRadius: BorderRadius.circular(10),
+                        ),
+                        disabledBorder: OutlineInputBorder(
+                          borderSide: BorderSide(color: Colors.grey, width: 1.4), // Red border color when disabled
+                          borderRadius: BorderRadius.circular(10),
                         ),
                       ),
                     ),
